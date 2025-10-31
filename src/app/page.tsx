@@ -23,8 +23,10 @@ export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-50 to-pink-50 font-sans">
       <main className="w-full max-w-md p-8 glass">
-        <h1 className="text-2xl font-bold mb-2">Enter your roll no</h1>
-        <p className="text-sm text-zinc-600 mb-4">
+        <h1 className="text-2xl  text-neutral-800 font-bold mb-2">
+          Enter your roll no
+        </h1>
+        <p className="text-sm text-neutral-800 mb-4">
           Type the secret roll to continue — it's a tiny surprise on the other
           side.
         </p>
@@ -37,7 +39,7 @@ export default function Home() {
               setRoll(e.target.value);
               if (error) setError("");
             }}
-            className={`rounded-md border px-3 py-2 text-neutral-700 ${
+            className={`rounded-md border px-3 text-black py-2 ${
               error ? "shake" : ""
             }`}
             placeholder="e.g. 12345"
