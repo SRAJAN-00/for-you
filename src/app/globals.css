@@ -12,29 +12,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .glass {
-    background: linear-gradient(135deg, rgba(10,10,10,0.78), rgba(20,20,20,0.62));
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .modal {
-    box-shadow: 0 10px 40px rgba(2,6,23,0.6);
-    border: 1px solid rgba(255,255,255,0.04);
-  }
-
-  .subheading {
-    color: rgba(255,255,255,0.78);
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -55,13 +32,13 @@ body {
   width: min(420px, 92vw);
   transform: translate(-50%, -50%);
   /* use the design token so both light/dark modes match */
-  background: color-mix(in srgb, var(--background) 92%, white 8%);
+
   color: var(--foreground);
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(2,6,23,0.12);
+  box-shadow: 0 10px 40px rgba(2, 6, 23, 0.12);
   z-index: 30;
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .btn {
@@ -94,8 +71,12 @@ body {
 /* Glassy modal */
 .glass {
   /* light glass by default; dark mode will override below */
-  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(250,250,250,0.7));
-  border: 1px solid rgba(16,24,40,0.04);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(250, 250, 250, 0.7)
+  );
+  border: 1px solid rgba(16, 24, 40, 0.04);
   backdrop-filter: blur(6px) saturate(120%);
 }
 
@@ -105,58 +86,86 @@ body {
 }
 
 .subheading {
-  color: rgba(23,23,23,0.72);
+  color: rgba(23, 23, 23, 0.72);
 }
 
 /* No-button dodge transition */
 .btn-no {
-  transition: transform 220ms cubic-bezier(.2,.9,.2,1);
+  transition: transform 220ms cubic-bezier(0.2, 0.9, 0.2, 1);
 }
 
 /* button hover states for better feedback */
-.btn-yes:hover:not(:disabled) { filter: brightness(0.95); }
-.btn-no:hover:not(:disabled) { filter: brightness(0.95); }
-.btn-ok:hover:not(:disabled) { filter: brightness(0.95); }
+.btn-yes:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+.btn-no:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+.btn-ok:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
 
 /* slightly stronger borders for accessibility */
-.btn { box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset; }
-
-/* Confetti pieces */
-.confetti-root {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.confetti {
-  position: absolute;
-  top: -10px;
-  width: 10px;
-  height: 18px;
-  border-radius: 2px;
-  opacity: 0.95;
-  transform-origin: center;
-  animation: confetti-fall 1.6s linear forwards, confetti-spin 1.2s linear infinite;
+.btn {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset;
 }
 
-@keyframes confetti-fall {
-  to {
-    transform: translateY(120vh) rotate(200deg);
-    opacity: 0.9;
+/* Welcome popup */
+.welcome-popup {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+}
+.welcome-content {
+  min-width: 240px;
+  max-width: 90vw;
+  /* vibrant indigo -> teal gradient for a unique pop */
+  background: white;
+  color: black;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.welcome-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.btn-dismiss {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.95);
+  padding: 6px;
+  border-radius: 8px;
+}
+.btn-dismiss:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+/* Removed dark-mode specific overrides — app uses a single light theme */
+@keyframes input-shake {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px);
   }
 }
-
-@keyframes confetti-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* input shake for wrong roll */
-.shake {
-  animation: input-shake 420ms ease-in-out;
-}
-@keyframes input-shake {
-  10%, 90% { transform: translateX(-1px); }
-  20%, 80% { transform: translateX(2px); }
-  30%, 50%, 70% { transform: translateX(-4px); }
-}
+/* (Removed duplicate older welcome styles) */

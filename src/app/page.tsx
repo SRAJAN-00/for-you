@@ -9,7 +9,7 @@ export default function Home() {
   const [error, setError] = useState("");
 
   // Hard-coded correct roll number. Change as needed.
-  const CORRECT_ROLL = "12345";
+  const CORRECT_ROLL = "26";
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -42,7 +42,7 @@ export default function Home() {
             className={`rounded-md border px-3 text-black py-2 ${
               error ? "shake" : ""
             }`}
-            placeholder="e.g. 12345"
+            placeholder="Roll no"
           />
 
           <button
