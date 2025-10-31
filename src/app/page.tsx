@@ -24,7 +24,10 @@ export default function Home() {
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-50 to-pink-50 font-sans">
       <main className="w-full max-w-md p-8 glass">
         <h1 className="text-2xl font-bold mb-2">Enter your roll no</h1>
-        <p className="text-sm text-zinc-600 mb-4">Type the secret roll to continue — it's a tiny surprise on the other side.</p>
+        <p className="text-sm text-zinc-600 mb-4">
+          Type the secret roll to continue — it's a tiny surprise on the other
+          side.
+        </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <input
@@ -34,7 +37,9 @@ export default function Home() {
               setRoll(e.target.value);
               if (error) setError("");
             }}
-            className={`rounded-md border px-3 py-2 ${error ? "shake" : ""}`}
+            className={`rounded-md border px-3 py-2 text-neutral-700 ${
+              error ? "shake" : ""
+            }`}
             placeholder="e.g. 12345"
           />
 
@@ -49,7 +54,7 @@ export default function Home() {
         </form>
 
         <p className="mt-6 text-sm text-zinc-600">
-          Enter the correct roll (currently <strong>12345</strong>) to visit the interactive modal.
+          Enter the correct roll to gain access.
         </p>
       </main>
     </div>
