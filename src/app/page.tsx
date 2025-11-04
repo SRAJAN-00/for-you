@@ -9,7 +9,7 @@ export default function Home() {
   const [error, setError] = useState("");
 
   // Hard-coded correct roll number. Change as needed.
-  const CORRECT_ROLL = "26";
+  const CORRECT_ROLL = "06";
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();

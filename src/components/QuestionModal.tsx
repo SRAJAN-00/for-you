@@ -76,7 +76,7 @@ export default function QuestionModal() {
         {!congrats ? (
           <div>
             <h2 className="text-lg font-semibold heading text-neutral-900">
-              Are you gay?
+              Do you love me? ❤️
             </h2>
             <p className="mt-2 subheading">select Yes or No</p>
 
@@ -111,7 +111,7 @@ export default function QuestionModal() {
           <div className="congrats">
             <h2 className="text-lg text-yellow-400 font-semibold">Congrats!</h2>
             <p className="mt-2 text-neutral-700">
-              You are now a certified Gay🎉
+              Aww I knew it! Love is love! 💋😘
             </p>
             <div className="mt-4">
               <button className="btn btn-ok" disabled>
